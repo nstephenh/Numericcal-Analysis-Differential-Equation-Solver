@@ -38,5 +38,10 @@ def difeq1(x, y):
 def difderiv(x, y):
     return x/(y*y)
 
+
+def difeq2(x, y):
+    return x
+
 initx = 1
 print(euler(difeq1, 20, 1, abs(initx)))
+print(euler(difeq2, 20, 1, 1))
