@@ -15,7 +15,7 @@ def euler(function, iterations, initialx, initialy, interval=1, divisor=","):
     return(curry)
 
 
-def quadeuler(function, iterations, initialx, initialy, interval=1, divisor=","):
+def quadeuler(function, deriv,  iterations, initialx, initialy, interval=1, divisor=","):
     pastx = initialx
     currx = initialx
     pasty = initialy
@@ -24,7 +24,7 @@ def quadeuler(function, iterations, initialx, initialy, interval=1, divisor=",")
     h = interval/iterations
     while (i < iterations):
         print(i, divisor, currx, divisor, curry)
-        curry += h*function(currx, curry)
+        curry += h*function(currx, curry) + (h*h/2)*difderiv(currx, curry)
         currx += h
         i += 1
     print(i, divisor, currx, divisor, curry)
@@ -45,3 +45,4 @@ def difeq2(x, y):
 initx = 1
 print(euler(difeq1, 20, 1, abs(initx)))
 print(euler(difeq2, 20, 1, 1))
+print(quadeuler(difeq1, difderiv, 20, 1, 1))
